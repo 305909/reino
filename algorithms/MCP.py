@@ -49,6 +49,8 @@ def parse_args():
                         help='number of testing episodes')
     parser.add_argument('--eval-frequency', default=100, type=int,
                         help='evaluation frequency over training iterations')
+    parser.add_argument('--learning-rate', default=2.5e-4, type=float,
+                        help='learning rate')
     parser.add_argument('--baseline', default='vanilla', type=str,
                         choices=['vanilla', 'constant', 'whitening'],
                         help='baseline for the policy update function [vanilla, constant, whitening]')
@@ -81,6 +83,7 @@ def train(args, seed, train_env, test_env, model):
     agent = RF(policy,
                device=args.device,
                baseline=args.baseline,
+               learning_rate=args.learning_rate,
                seed=seed)
 
     test_env = gym.make(test_env)
@@ -133,6 +136,7 @@ def test(args, test_env, seed):
     agent = RF(policy,
                device=args.device,
                baseline=args.baseline,
+               learning_rate=args.learning_rate,
                seed=seed)
 
     print(f'\nmodel to test: {model}\n')
