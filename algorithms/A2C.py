@@ -49,6 +49,8 @@ def parse_args():
                         help='number of testing episodes')
     parser.add_argument('--eval-frequency', default=100, type=int,
                         help='evaluation frequency over training iterations')
+    parser.add_argument('--learning-rate', default=2.5e-4, type=float,
+                        help='learning rate')
     parser.add_argument('--batch-size', default=32, type=int,
                         help='number of time-steps for policy update')
     parser.add_argument('--input-model', default=None, type=str,
@@ -80,6 +82,7 @@ def train(args, seed, train_env, test_env, model):
     agent = A2C(policy,
                 device=args.device,
                 batch_size=args.batch_size,
+                learning_rate=args.learning_rate,
                 seed=seed)
 
     test_env = gym.make(test_env)
@@ -136,6 +139,7 @@ def test(args, test_env, seed):
     agent = A2C(policy,
                 device=args.device,
                 batch_size=args.batch_size,
+                learning_rate=args.learning_rate,
                 seed=seed)
 
     print(f'\nmodel to test: {model}\n')
