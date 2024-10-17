@@ -77,6 +77,7 @@ OUTPUT = 'results'
         --train-episodes 10000 \
         --test-episodes 50 \
         --eval-frequency 100 \
+        --learning-rate 2.5e-4 \
         --baseline whitening \
         --directory {OUTPUT}
 ```
@@ -111,6 +112,7 @@ OUTPUT = 'results'
         --train-episodes 10000 \
         --test-episodes 50 \
         --eval-frequency 100 \
+        --learning-rate 2.5e-4 \
         --batch-size 32 \
         --directory {OUTPUT}
 ```
@@ -234,7 +236,7 @@ OUTPUT = 'results'
         --train-episodes 10000 \
         --test-episodes 50 \
         --eval-frequency 100 \
-        --learning-rate 2.5e-5 \
+        --learning-rate 2.5e-4 \
         --dist uniform \
         --directory {OUTPUT}
 ```
