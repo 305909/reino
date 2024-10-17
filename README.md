@@ -237,6 +237,7 @@ OUTPUT = 'results'
         --test-episodes 50 \
         --eval-frequency 100 \
         --learning-rate 2.5e-4 \
+        --optimization-rate 2.5e-5 \
         --dist uniform \
         --directory {OUTPUT}
 ```
